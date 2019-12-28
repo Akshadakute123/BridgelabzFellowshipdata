@@ -4,9 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class Utility {
 	static Scanner sc = new Scanner(System.in);
@@ -228,6 +232,7 @@ public class Utility {
 			System.out.println(w);
 		}
 	}
+//	Tictactoe
 //#######################@@Gambler@@########################################
 
 	static int wins = 0;
@@ -329,6 +334,36 @@ public class Utility {
 		
 		
 		
+	}
+	//<===========================regex============================>
+	public static void regex(String name, String fullname, String mobile, String date, String msg) {
+		String REGEX_name = "<<name>>";
+		String REGEX_fullname = "<<full name>>";
+		String REGEX_mobile = "xxxxxxxxxx";
+		String REGEX_date = "xx/xx/xxxx";
+		Pattern p;
+		Matcher m;
+
+		p = Pattern.compile(REGEX_name);
+		m = p.matcher(msg);
+		msg = m.replaceAll(name);
+
+		p = Pattern.compile(REGEX_fullname);
+		m = p.matcher(msg);
+		msg = m.replaceAll(fullname);
+
+		p = Pattern.compile(REGEX_mobile);
+		m = p.matcher(msg);
+		msg = m.replaceAll(mobile);
+
+		p = Pattern.compile(REGEX_date);
+		m = p.matcher(msg);
+		msg = m.replaceAll(date);
+
+		System.out.println("After Replacing :");
+		System.out.println();
+		System.out.println(msg);
+
 	}
 	
 //@@@@@@@@@@@@@@@@@@##############Square root###@@@@@@@@@@@@@@
@@ -482,6 +517,21 @@ public class Utility {
 		for(int i=0;i<arr.length;i++)
 		{
 			System.out.print(arr[i]+" ");
+		}
+	}
+	//<====================prime=============================>
+	public static void primeNumbers(int LastNumber) {
+		int i = 0;
+		for (i = 2; i < LastNumber; i++) {
+			int counter = 0;
+			for (int j = i; j >= 1; j--) {
+				if (i % j == 0) {
+					counter++;
+				}
+			}
+			if (counter == 2) {
+				System.out.print(i + " ");
+			}
 		}
 	}
 	//<======================Buble sort============================>
@@ -713,32 +763,109 @@ public static int  guessNumber()
 		}
 		return low;
 	}
-//<=======================String Palindrome====================>
-/*public static void stringPlaindrome(String str1)
+//<=======================Anagram array====================>
+public static int[] anagramArray(int arr1[])
 {
-	
-	Dequeue<Character> d = new Dequeue<Character>();
-			//String str1;
-			char[] element = check.toCharArray();
-			for(int i=0;i<element.length;i++)
-			{
-				d.addRear(element[i]);
-			}
-			Dequeue<Character>d2 = new Dequeue<Character>();
-			char[] res1=d.display(); 
-			for(int i=0;i<element.length;i++)
-			{
-				d2.addFront(element[i]);
-			}
-			char[] res2 =d2.display();
-			if(Arrays.equals(res1, res2)) 
-			{
-				System.out.println("String is pallindrome");
-			}
-			else System.out.println("String is not pallindrome");
+	int count=0;
+	int arr2[]=new int[arr1.length];
+	for(int i=0;i<arr1.length;i++)
+	{
+		for(int j=i+1;j<arr1.length;j++)
+		{
+		if(Utility.anagram(arr1[i],arr1[j])==true)
+		{
+			arr2[count]=arr1[i];
+			count++;
+			arr2[count]=arr1[j];
+			count++;
 		}
-
+		}
 	}
-*/
+
+	return arr2;
+}
+//<=============================Anagram compare to=============>
+public static int[] compareTo(int arr[], int arr2[])
+{
+	int arr3[]=new int[arr.length];
+	
+	int count=0;
+	for(int i=0;i<arr.length;i++)
+	{
+		int flag=1;
+		for(int j=0;j<arr2.length;j++)
+		{
+			if(arr[i]==arr2[j])
+			{
+				flag=0;
+				break;
+			}
+			else
+				flag=1;
+			
+		}
+		if(flag==1)
+		{
+			arr3[count]=arr[i];
+			count++;
+		}
+	}
+	return arr3;
+	
+}
+//<=========================Anagram=========================>
+
+public static boolean anagram(int m, int n) {
+	int m1, n1, i, j;
+	ArrayList<Integer> t1 = new ArrayList<Integer>();
+	ArrayList<Integer> t2 = new ArrayList<Integer>();
+	boolean flag = false;
+	while (m != 0) {
+		m1 = m % 10;
+		m = m / 10;
+		t1.add(m1);
+
+		
+	}
+	while (n != 0) {
+		n1 = n % 10;
+		n = n / 10;
+		t2.add(n1);
+	}
+	
+	Collections.sort(t1);
+	Collections.sort(t2);
+
+	if (t1.size() == t2.size()) {
+		for (i = 0; i < t1.size(); i++) {
+			if (t1.get(i) == t2.get(i))
+				flag = true;
+			else
+				return false;
+		}
+	}
+	return flag;
+}
+//=======================PrimeArray==========================>
+
+public static int[] primeNumberArray(int number)
+{
+	int arr[]=new int[500];
+	int i=0,k=0;
+	for (i = 2; i <number; i++) {
+		int counter = 0;
+		for (int j = i; j>=1; j--) {
+			if (i % j == 0) {
+				counter++;
+			}
+		}
+		if(counter==2)
+		{
+			arr[k]=i;
+			k++;
+		}
+	}
+	return arr;
+}
 
 }

@@ -2,14 +2,14 @@ package Com.Bridgelabz.Fellowship.DataStructure;
 
 public class Queue
 {
-  int balance=1000;
-   int index=0;
-   int arr[];
+  static int balance=1000;
+   static int index=0;
+   static int arr[];
   public Queue()
   {
 	  arr=new int[10];
   }
-  public void enqueue(int item)
+  public static void enqueue(int item)
 	{
 		if (index<10) 
 		{

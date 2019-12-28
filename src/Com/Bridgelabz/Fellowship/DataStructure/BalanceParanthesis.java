@@ -9,8 +9,8 @@ public class BalanceParanthesis<T>
 		
 			Stack stk = new Stack();
 			System.out.println("Running for balanced Parenthesis");
-			char[] ch ="(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)".toCharArray();
-			//char[] ch="()))))))))))".toCharArray();
+			//char[] ch ="(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)".toCharArray();
+			char[] ch="()))))))))))".toCharArray();
 			int i=0;int j=0;int p =0; int k=0;
 			int count=0;
 			// to push value into stack
@@ -18,7 +18,7 @@ public class BalanceParanthesis<T>
 			{
 				if (ch[i] == '(') 
 					{
-					stk.push('g');
+					stk.push('f');
 					p++;
 					}
 				i++;

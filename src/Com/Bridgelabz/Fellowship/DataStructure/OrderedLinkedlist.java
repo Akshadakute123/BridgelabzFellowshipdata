@@ -165,6 +165,7 @@ public class OrderedLinkedlist
 	public static void main(String[] args) throws Exception 
 	{
 		 OrderedLinkedlist input = OrderedLinkedlist.inputFromFile();
+		 input.display();
 		System.out.println("Enter the value you want to search");
 		Scanner s = new Scanner(System.in);
 		int ele=s.nextInt();
