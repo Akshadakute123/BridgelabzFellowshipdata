@@ -121,6 +121,10 @@ public class Utility {
 	}
 
 	// ###########################@@HARMONIC NUMBER@@#########################
+	/**
+	 * It returns harmonic of a number
+	 * @param num - to get harmonic of
+	 */
 	public static void harmonic(int num) {
 		int i = 1;
 		double result = 0.0;
@@ -329,7 +333,7 @@ public class Utility {
 	{
 		double n=Y*12;
 		double r=(R/(12*100));
-		double payment=((P*r)/(1-Math.pow(1+4, (-n))));
+		double payment=((P*r)/(1-Math.pow(1+r, (-n))));
 		System.out.println("monthly payment is "+payment);
 		
 		
@@ -599,7 +603,7 @@ public class Utility {
 	}
 	//<===========================================PRIME NUMBER========================>
 	 
-	static int arr[]=new int[1000];
+	//static int arr[]=new int[1000];
 	public static ArrayList<Integer> isprime(int num)
 	 { 
 		ArrayList<Integer>a1=new ArrayList<Integer>();
@@ -673,6 +677,24 @@ public static int[] primenumber()
 		//System.out.println("sum of prime number is" + sum);
 		return primeNums;
 	}
+//<============================Stringpermutation=====================>
+
+public static void printPermutn(String str, String ans) {
+
+	if (str.length() == 0) {
+		System.out.print(ans + " ");
+		return;
+	}
+
+	for (int i = 0; i < str.length(); i++) {
+
+		char ch = str.charAt(i);
+
+		String ros = str.substring(0, i) + str.substring(i + 1);
+
+		printPermutn(ros, ans + ch);
+	}
+}
 
 	
 	//<=====================Merge sort==========================>
@@ -733,15 +755,6 @@ public static void mergeArray(int lower,int middle,int higher)
 		i++;
 	}
 	
-}
-//<=================================STRING FUNCTIONS====================>
-public static void stringfunctions(String name,int mobileno,int date)
-{
-	String str1="Hello name your contact number is 91-xxxxxxxxxx Please let us know in case of any clarification Thank you BridgeLabz 01/01/2016 ";
-	str1.split("name");
-	
-
-
 }
 
 //<==============================Guess No=========================>
@@ -837,11 +850,18 @@ public static boolean anagram(int m, int n) {
 	Collections.sort(t2);
 
 	if (t1.size() == t2.size()) {
-		for (i = 0; i < t1.size(); i++) {
-			if (t1.get(i) == t2.get(i))
-				flag = true;
-			else
+		for (i = 0; i < t1.size(); i++) 
+		{
+			for( j=i+1;j<t2.size();j++)
+			{
+				if (t1.get(i) == t2.get(j)) {
+					flag = true;
+				}
+			
+			else {
 				return false;
+			}
+			}
 		}
 	}
 	return flag;

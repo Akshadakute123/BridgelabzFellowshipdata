@@ -2,14 +2,15 @@ package Com.Bridgelabz.Fellowship.FunctionalProgram;
 
 import Com.bridgelabz.Fellowship.utility.Utility;
 
-public class Tictactoe {
+public class TicTacToe {
 	String board[][];
 	final int col = 3;
 	final int row = 3;
 	String regex = "\\s{3}";
 
-	Tictactoe() {
+	TictacToe() {
 		board = new String[row][col];
+
 	}
 
 	void initializeboard() {
@@ -28,19 +29,16 @@ public class Tictactoe {
 
 	public boolean iswin() {
 		for (int i = 0; i < row; i++) {
-			if (board[0][i] == "x"&& board[1][i]== "x"&& board[2][i] == "x") {
+			if (board[0][i] == "x" && board[1][i]== "x" && board[2][i] == "x") {
 				return true;
 			}
 		}
-		return false;
-/*
 		if ((!board[0][2].matches(regex) && board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]))
 				|| (!board[0][0].matches(regex) && board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2])))
 			;
 		{
 			return true;
 		}
-*/
 	}
 
 	String printboqard() {
@@ -59,7 +57,7 @@ public class Tictactoe {
 	}
 
 	public static void main(String[] args) {
-		Tictactoe t1 = new Tictactoe();
+		TictacToe t1 = new TictacToe();
 		String player = "X";
 		t1.initializeboard();
 		do {
