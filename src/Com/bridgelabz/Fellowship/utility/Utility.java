@@ -826,6 +826,30 @@ public static int[] compareTo(int arr[], int arr2[])
 	return arr3;
 	
 }
+public static void coupounGeneration() {
+	int arr[]= {6,0,1,2,4,8,9,7};
+	int counter=arr.length;
+	int count=0;
+	while(counter>0)
+	{
+		int random=(int) (Math.random()*5);
+		for(int i=0;i<counter;i++)
+		{
+			if(arr[i]==random)
+			{
+				count++;
+				counter--;
+				break;
+				
+			}
+			else
+			{
+				count++;
+			}
+		}
+	}
+	System.out.println(count);
+}
 //<=========================Anagram=========================>
 
 public static boolean anagram(int m, int n) {

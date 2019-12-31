@@ -2,8 +2,11 @@ package Com.Bridgelabz.Fellowship.DataStructure;
 
 import java.util.Scanner;
 
+import Com.bridgelabz.Fellowship.utility.Utility;
+
 public class CalenderUtility 
 {
+	@SuppressWarnings("unused")
 	private Scanner  s = new Scanner(System.in);
 		// static variable to store number of days that occurs in a month in a non leap year
 		public static int month[]= {31,28,31,30,31,30,31,31,30,31,30,31};
@@ -42,9 +45,34 @@ public class CalenderUtility
 			return d0;
 		}
 		// returns how many days in a particular month
-		public int value(int i)
+		public static int value(int i)
 		{
 			return month[i];
+		}
+		public static int inputYear()
+		{
+			System.out.println("Please enter year");
+			int year=Utility.integerInput();
+			if(year>0&&year<10000)
+				return year;
+			else
+			{
+				System.out.println("Enter year between 0 to 9999");
+				return inputYear();
+			}
+		}
+		// used to take and validating month input
+		public static int inputMonth()
+		{
+			System.out.println("Please Enter MONTH");
+			int month=Utility.integerInput();
+			if(month>=1&&month<13)
+				return month;
+			else
+			{
+				System.out.println("Enter month between 0 to 13");
+				return inputMonth();
+			}
 		}
 	}
 

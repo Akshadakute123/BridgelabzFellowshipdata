@@ -8,7 +8,7 @@ public class TicTacToe {
 	final int row = 3;
 	String regex = "\\s{3}";
 
-	TictacToe() {
+	TicTacToe() {
 		board = new String[row][col];
 
 	}
